@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Méta-données du document -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Feuilles de style -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <!-- Titre du document -->
+    <title>Toggle Dark Mode</title>
+</head>
+
+<body>
+    <!-- Styles spécifiques au corps du document -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            transition: 2s, color 2s; /* Transition fluide pour le changement de couleur */
+        }
+
+        h1 {
+            display: flex;
+            justify-content: center;
+        }
+
+        i {
+            display: flex;
+            justify-content: center;
+            font-size: 50px;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- Contenu du corps du document -->
+    <h1>JavaScript Toggle Dark Mode</h1>
+    <i class="bi bi-brightness-alt-high-fill" id="toggleDark"></i>
+
+    <!-- Script JavaScript -->
+    <script>
+        // Récupérer l'élément de bascule du mode sombre
+        const toggle = document.getElementById('toggleDark');
+        // Récupérer le corps du document
+        const body = document.querySelector('body');
+
+        // Ajouter un écouteur d'événements pour le clic sur l'icône
+        toggle.addEventListener('click', function () {
+            // Basculer entre les classes d'icône pour changer l'apparence
+            this.classList.toggle('bi-moon');
+            this.classList.toggle('bi-brightness-alt-high-fill');
+
+            // Changer les styles du corps en fonction de la classe actuelle de l'icône
+            if (this.classList.contains('bi-brightness-alt-high-fill')) {
+                body.style.background = 'white';
+                body.style.color = 'black';
+            } else {
+                body.style.background = 'black';
+                body.style.color = 'white';
+            }
+        });
+    </script>
+</body>
+
+</html>
